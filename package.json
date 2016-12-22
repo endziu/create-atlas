@@ -1,0 +1,17 @@
+{
+  "name": "atlas",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node createAtlas.js"
+  },
+  "author": "endziu",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^1.6.2",
+    "fs-extra": "^1.0.0",
+    "ramda": "^0.22.1",
+    "request": "^2.79.0",
+    "request-progress": "^3.0.0",
+    "request-promise": "^4.1.1"
+  }
+}
