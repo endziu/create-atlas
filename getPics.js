@@ -3,12 +3,12 @@ const fs = require('fs')
 const download = require('./download.js')
 const { map } = require('ramda')
 
-const fixMissingArtworkWithUserPic =
+const getPicUrl =
     (obj) => obj.artwork_url === null ? obj.userPic : obj.artwork_url 
 
-const urls = map( fixMissingArtworkWithUserPic , data )
+const urls = map(getPicUrl, data)
 
-urls.forEach((url,index,arr) => {
+const doDownloads = (url, index) => {
   download(
     url,
     `data/imgs/file${index}.jpeg`,
@@ -17,4 +17,8 @@ urls.forEach((url,index,arr) => {
     (e)=> console.log('error: ', e),
     ()=> console.log('done!')
   )
-})
+}
+
+urls.map(doDownloads)
+
+
