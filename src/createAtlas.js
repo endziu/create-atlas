@@ -9,7 +9,7 @@ const files = fs.readdirSync('./data/imgs')
 
 const createCoords = (elem, index, array) => {
   const x = index * 100 % 1500
-  const y = parseInt(index /15, 10) * 100 % 1500
+  const y = parseInt(index / 15, 10) * 100 % 1500
   return {
     x: x,
     y: y
