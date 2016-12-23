@@ -5,7 +5,6 @@ const download = require('./download.js')
 const getPicUrl =
     (obj) => obj.artwork_url === null ? obj.userPic : obj.artwork_url 
 
-
 const doDownload = (url, index) => {
   download(
     url,
@@ -19,5 +18,4 @@ const doDownload = (url, index) => {
 
 data.map(getPicUrl)
     .map(doDownload)
-
 
