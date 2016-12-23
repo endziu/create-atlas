@@ -7,8 +7,6 @@ const Image = Canvas.Image
 
 const files = fs.readdirSync('./data/imgs')
 
-const range = (n) => Array(n).fill({})
-
 const createCoords = (elem, index, array) => {
   const x = index * 100 % 1500
   const y = parseInt(index /15, 10) * 100 % 1500
@@ -23,6 +21,8 @@ const drawPicAtCoord = (coord, index, array) => {
   img.src = fs.readFileSync(`./data/imgs/file${index}.jpeg`)
   context.drawImage(img, coord.x, coord.y, 100, 100)
 }
+
+const range = (n) => Array(n).fill({})
 
 range(files.length)
   .map(createCoords)
