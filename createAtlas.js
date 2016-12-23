@@ -7,19 +7,15 @@ const Image = Canvas.Image
 
 const files = fs.readdirSync('./data/imgs')
 
-const createCoords = () => {
-  const coords = []
-  for (let i = 0; i < 15; i++) {
-    for (let j = 0; j < 15; j++) {
-      const x = i * 100
-      const y = j * 100
-      coords.push({
-        x: x,
-        y: y
-      })
-    }
+const range = (n) => Array(n).fill({})
+
+const createCoords = (elem, index, array) => {
+  const x = index * 100 % 1500
+  const y = parseInt(index /15, 10) * 100 % 1500
+  return {
+    x: x,
+    y: y
   }
-  return coords
 }
 
 const drawPicAtCoord = (coord, index) => {
@@ -30,7 +26,9 @@ const drawPicAtCoord = (coord, index) => {
   }
 }
 
-createCoords().map(drawPicAtCoord)
+range(files.length)
+  .map(createCoords)
+  .map(drawPicAtCoord)
 
 fs.writeFileSync('output.png', canvas.toBuffer())
 
