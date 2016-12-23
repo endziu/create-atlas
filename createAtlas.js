@@ -18,12 +18,10 @@ const createCoords = (elem, index, array) => {
   }
 }
 
-const drawPicAtCoord = (coord, index) => {
-  if (index < files.length - 1) {
-    const img = new Image
-    img.src = fs.readFileSync(`./data/imgs/file${index}.jpeg`)
-    context.drawImage(img, coord.x, coord.y, 100, 100)
-  }
+const drawPicAtCoord = (coord, index, array) => {
+  const img = new Image
+  img.src = fs.readFileSync(`./data/imgs/file${index}.jpeg`)
+  context.drawImage(img, coord.x, coord.y, 100, 100)
 }
 
 range(files.length)
