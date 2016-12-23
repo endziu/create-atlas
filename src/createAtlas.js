@@ -5,7 +5,12 @@ const canvas = new Canvas(1500,1500)
 const context = canvas.getContext('2d')
 const Image = Canvas.Image
 
-const files = fs.readdirSync('./data/imgs')
+const compose  = (fn, ...rest) =>
+  rest.length === 0 ?
+    fn :
+    (...args) => fn(compose(...rest)(...args))
+
+const files = fs.readdirSync('../data/imgs')
 
 const createCoords = (elem, index, array) => {
   const x = index * 100 % 1500
@@ -18,7 +23,7 @@ const createCoords = (elem, index, array) => {
 
 const drawPicAtCoord = (coord, index, array) => {
   const img = new Image
-  img.src = fs.readFileSync(`./data/imgs/file${index}.jpeg`)
+  img.src = fs.readFileSync(`../data/imgs/file${index}.jpeg`)
   context.drawImage(img, coord.x, coord.y, 100, 100)
 }
 
