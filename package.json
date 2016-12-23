@@ -2,7 +2,7 @@
   "name": "create-atlas",
   "version": "0.0.1",
   "scripts": {
-    "start": "node createAtlas.js"
+    "start": "node src/createAtlas.js"
   },
   "author": "endziu",
   "license": "ISC",
