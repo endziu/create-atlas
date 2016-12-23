@@ -5,16 +5,12 @@ const download = require('./download.js')
 const getPicUrl =
     (obj) => obj.artwork_url === null ? obj.userPic : obj.artwork_url 
 
-const doDownload = (url, index) => {
-  download(
-    url,
-    `data/imgs/file${index}.jpeg`,
-    (state) => console.log('progress: ', state),
-    (res) => console.log('response: ', res.statusCode),
-    (e) => console.log('error: ', e),
-    () => console.log('done!')
-  )
-}
+const error = (e) => console.log('error', e)
+const done = () => console.log('done!')
+
+const doDownload =
+  (url, index) => 
+    download( url, `data/imgs/file${index}.jpeg`,error, done)
 
 data.map(getPicUrl)
     .map(doDownload)
