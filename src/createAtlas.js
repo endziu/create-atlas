@@ -5,11 +5,6 @@ const canvas = new Canvas(1500,1500)
 const context = canvas.getContext('2d')
 const Image = Canvas.Image
 
-const compose  = (fn, ...rest) =>
-  rest.length === 0 ?
-    fn :
-    (...args) => fn(compose(...rest)(...args))
-
 const files = fs.readdirSync('../data/imgs')
 
 const createCoords = (elem, index, array) => {
