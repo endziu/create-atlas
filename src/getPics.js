@@ -1,4 +1,4 @@
-const data = require('./data/tracks.json')
+const data = require('../data/tracks.json')
 const fs = require('fs')
 const download = require('./download.js')
 
@@ -11,7 +11,7 @@ const getPicUrl =
 
 const doDownload =
   (url, index) => 
-    download( url, `data/imgs/file${index}.jpeg`,error, done)
+    download( url, `../data/imgs/file${index}.jpeg`,error, done)
 
 data.map(getPicUrl)
     .map(doDownload)

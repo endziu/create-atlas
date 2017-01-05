@@ -5,7 +5,7 @@ const canvas = new Canvas(1500,1500)
 const context = canvas.getContext('2d')
 const Image = Canvas.Image
 
-const files = fs.readdirSync('../data/imgs')
+const files = fs.readdirSync('../data/imgs/')
 
 const createCoords = (elem, index, array) => {
   const x = index * 100 % 1500
